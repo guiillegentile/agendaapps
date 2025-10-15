@@ -7,12 +7,12 @@ import { ContactsService } from '../../services/contacts-service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-contacts-page',
+  selector: 'app-contact-page',
   imports: [RouterModule,ContactListItem, FormsModule],
-  templateUrl: './contacts-page.html',
-  styleUrl: './contacts-page.scss'
+  templateUrl: './contact-page.html',
+  styleUrl: './contact-page.css'
 })
-export class ContactsPage implements OnInit {
+export class ContactPage implements OnInit {
   ngOnInit(): void {
     this.contactsService.getContacts();
   }

@@ -8,7 +8,7 @@ import { Spinner } from '../../components/spinner/spinner';
   selector: 'app-register-page',
   imports: [RouterModule,FormsModule,Spinner],
   templateUrl: './register-page.html',
-  styleUrl: './register-page.scss'
+  styleUrl: './register-page.css'
 })
 export class RegisterPage {
   errorRegister=false;

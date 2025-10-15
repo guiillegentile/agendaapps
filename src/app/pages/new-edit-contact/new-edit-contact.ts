@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-new-edit-contact',
   imports: [FormsModule],
   templateUrl: './new-edit-contact.html',
-  styleUrl: './new-edit-contact.scss'
+  styleUrl: './new-edit-contact.css'
 })
 export class NewEditContact implements OnInit {
   contactsService = inject(ContactsService);

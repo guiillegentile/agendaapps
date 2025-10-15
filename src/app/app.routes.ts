@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginPage } from './pages/login-page/login-page';
-import { ContactsPage } from './pages/contact-page/contact-page';
+import { ContactPage } from './pages/contact-page/contact-page';
 import { ContactDetails } from './pages/contact-details/contact-details';
 import { LoggedLayout } from './layouts/logged-layout/logged-layout';
 import { GroupsPage } from './pages/groups/groups';
@@ -27,7 +27,7 @@ export const routes: Routes = [
     children: [
       {
         path: "",
-        component: ContactsPage
+        component: ContactPage
       },{
         path: "contacts/new",
         component: NewEditContact

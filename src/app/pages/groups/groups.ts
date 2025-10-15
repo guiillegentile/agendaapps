@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth-service';
   selector: 'app-groups',
   imports: [],
   templateUrl: './groups.html',
-  styleUrl: './groups.scss'
+  styleUrl: './groups.css'
 })
 export class GroupsPage {
   authService = inject(AuthService);

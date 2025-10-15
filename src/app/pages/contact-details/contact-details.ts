@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './contact-details.css'
 })
 export class ContactDetails {
-
+  contact = { name: 'John Doe', email: 'john.doe@example.com' };
 }
