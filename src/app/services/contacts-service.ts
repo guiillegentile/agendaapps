@@ -12,7 +12,6 @@ export class ContactsService {
 
   contacts: Contact[] = []
 
-  /** Obtiene los contactos del backend */
   async getContacts() {
     const res = await fetch(this.URL_BASE,
       {
@@ -37,7 +36,6 @@ export class ContactsService {
     return resContact;
   }
 
-  /** Crea un contacto */
   async createContact(nuevoContacto:NewContact) {
     const res = await fetch(this.URL_BASE, 
       {
@@ -54,12 +52,59 @@ export class ContactsService {
     return resContact;
   }
 
-  editContact() { }
 
-  /** Borra un contacto */
-  deleteContact(id:string) {
-    this.contacts = this.contacts.filter(contact => contact.id !== id)
+  async editContact(contactoEditado:Contact) {
+    const res = await fetch(this.URL_BASE+"/"+contactoEditado.id, 
+      {
+        method:"PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer "+this.authService.token,
+        },
+        body: JSON.stringify(contactoEditado)
+      });
+    if(!res.ok) return;
+
+    this.contacts = this.contacts.map(contact => {
+      if(contact.id === contactoEditado.id) {
+        return contactoEditado;
+      };
+      return contact;
+    });
+    return contactoEditado;
   }
 
-  setFavourite() { }
+ 
+  async deleteContact(id:string | number) {
+    const res = await fetch(this.URL_BASE+"/"+id, 
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer "+this.authService.token,
+        },
+      });
+    if(!res.ok) return;
+    this.contacts = this.contacts.filter(contact => contact.id !== id);
+    return true;
+  }
+
+ 
+  async setFavourite(id:string | number ) {
+    const res = await fetch(this.URL_BASE+"/"+id+"/favorite", 
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer "+this.authService.token,
+        },
+      });
+    if(!res.ok) return;
+   
+    this.contacts = this.contacts.map(contact => {
+      if(contact.id === id) {
+        return {...contact, isFavorite: !contact.isFavorite};
+      };
+      return contact;
+    });
+    return true;
+  }
 }

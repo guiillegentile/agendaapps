@@ -1,3 +1,143 @@
-.error{
-    color: var(--color-error);
-}
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: #f5f7fa;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* ==== Encabezado ==== */
+  .header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  
+    h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+  
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+  
+      &:hover {
+        background: #2980b9;
+      }
+    }
+  }
+  
+  /* ==== Lista de contactos ==== */
+  .contact-list {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  
+  /* ==== Ítem individual ==== */
+  .contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e6e9ec;
+    transition: background 0.2s ease;
+  
+    &:hover {
+      background: #f0f4ff;
+    }
+  
+    .info {
+      display: flex;
+      flex-direction: column;
+  
+      .name {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+  
+      .phone {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+    }
+  
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+  
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        color: #555;
+        transition: color 0.2s;
+  
+        &:hover {
+          color: #000;
+        }
+  
+        &.edit {
+          color: #27ae60;
+  
+          &:hover {
+            color: #1e8449;
+          }
+        }
+  
+        &.delete {
+          color: #e74c3c;
+  
+          &:hover {
+            color: #c0392b;
+          }
+        }
+      }
+    }
+  }
+  
+  /* ==== Estado vacío ==== */
+  .empty {
+    text-align: center;
+    padding: 3rem;
+    color: #95a5a6;
+    font-size: 1rem;
+  }
+  
+  /* ==== Modal (opcional, si tenés) ==== */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
