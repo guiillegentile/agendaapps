@@ -1,0 +1,100 @@
+:host {
+    display: block;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-color: #ffeef7;
+    color: #333;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Estado de carga o sin resultados */
+  p {
+    font-size: 1rem;
+    margin: 0.8rem 0;
+  }
+  
+  p:first-letter {
+    text-transform: uppercase;
+  }
+  
+  /* Título del contacto */
+  h1 {
+    font-size: 2rem;
+    color: #e84a8a;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  /* Información del contacto */
+  p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  /* Estrella de favorito */
+  p:has(> .star) {
+    font-size: 1.4rem;
+  }
+  
+  /* Botones */
+  button {
+    background: #ff9ecb;
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 6px rgba(233, 140, 180, 0.3);
+  }
+  
+  button:hover {
+    background: #ff75b1;
+    transform: translateY(-2px);
+  }
+  
+  /* Enlace de editar */
+  a {
+    color: #e84a8a;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+  
+  a:hover {
+    border-color: #e84a8a;
+  }
+  
+  /* Contenedor principal */
+  .contact-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 6px 15px rgba(255, 170, 200, 0.3);
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    :host {
+      padding: 1rem;
+    }
+  
+    .contact-card {
+      padding: 1rem;
+    }
+  
+    h1 {
+      font-size: 1.6rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }

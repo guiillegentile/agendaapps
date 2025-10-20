@@ -10,3 +10,4 @@ import { AuthService } from '../../services/auth-service';
 export class GroupsPage {
   authService = inject(AuthService);
 }
+

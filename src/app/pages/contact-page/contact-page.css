@@ -1,143 +1,100 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background: #f5f7fa;
-    min-height: 100vh;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  /* ==== Encabezado ==== */
-  .header {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  
-    h1 {
-      font-size: 2rem;
-      color: #2c3e50;
-      font-weight: 600;
-    }
-  
-    button {
-      background: #3498db;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 0.6rem 1.2rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s ease;
-  
-      &:hover {
-        background: #2980b9;
-      }
-    }
-  }
-  
-  /* ==== Lista de contactos ==== */
-  .contact-list {
-    width: 100%;
-    max-width: 800px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-  }
-  
-  /* ==== Ítem individual ==== */
-  .contact-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e6e9ec;
-    transition: background 0.2s ease;
-  
-    &:hover {
-      background: #f0f4ff;
-    }
-  
-    .info {
-      display: flex;
-      flex-direction: column;
-  
-      .name {
-        font-weight: 600;
-        color: #2c3e50;
-      }
-  
-      .phone {
-        color: #7f8c8d;
-        font-size: 0.9rem;
-      }
-    }
-  
-    .actions {
-      display: flex;
-      gap: 0.5rem;
-  
-      button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        color: #555;
-        transition: color 0.2s;
-  
-        &:hover {
-          color: #000;
-        }
-  
-        &.edit {
-          color: #27ae60;
-  
-          &:hover {
-            color: #1e8449;
-          }
-        }
-  
-        &.delete {
-          color: #e74c3c;
-  
-          &:hover {
-            color: #c0392b;
-          }
-        }
-      }
-    }
-  }
-  
-  /* ==== Estado vacío ==== */
-  .empty {
+  display: block;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background-color: #fff0f7;
+  color: #333;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Cabecera de columnas */
+div {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1fr;
+  align-items: center;
+  background: #ffcae1;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #e84a8a;
+  box-shadow: 0 3px 6px rgba(255, 170, 200, 0.25);
+  margin-bottom: 1rem;
+}
+
+div span {
+  text-align: center;
+}
+
+/* Lista general */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Cada ítem de contacto (heredará estilos desde app-contact-list-item) */
+app-contact-list-item {
+  display: block;
+  background: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 160, 190, 0.25);
+  transition: all 0.25s ease;
+}
+
+app-contact-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 140, 180, 0.35);
+}
+
+/* Botón flotante para agregar */
+a[routerLink="/contacts/new"] {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #ff8ecb;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(255, 140, 180, 0.4);
+  transition: all 0.3s ease;
+}
+
+a[routerLink="/contacts/new"]:hover {
+  background-color: #ff6fb4;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
     text-align: center;
-    padding: 3rem;
-    color: #95a5a6;
-    font-size: 1rem;
   }
-  
-  /* ==== Modal (opcional, si tenés) ==== */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
+
+  div span:nth-child(n+3) {
+    display: none;
   }
+
+  ul {
+    gap: 0.6rem;
+  }
+
+  a[routerLink="/contacts/new"] {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+  }
+}

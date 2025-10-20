@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   selector: 'app-contact-list-item',
   imports: [RouterModule],
   templateUrl: './contact-list-item.html',
-  styleUrl: './contact-list-item.scss'
+  styleUrl: './contact-list-item.css'
 })
 export class ContactListItem {
   contact = input.required<Contact>();

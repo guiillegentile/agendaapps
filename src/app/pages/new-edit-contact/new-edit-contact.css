@@ -1,0 +1,144 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe6f2, #ffd1e8);
+    min-height: 100vh;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    color: #333;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Tarjeta principal */
+  #container.card {
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 160, 190, 0.3);
+    width: 95%;
+    max-width: 600px;
+  }
+  
+  /* Título */
+  h2 {
+    color: #e84a8a;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  /* Formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  /* Grupo de campos */
+  form > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Etiquetas */
+  label {
+    color: #e84a8a;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Campos de texto */
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    padding: 0.7rem 1rem;
+    border: 1.8px solid #ffcce1;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.25s ease;
+  }
+  
+  input:focus {
+    border-color: #ff8ecb;
+    box-shadow: 0 0 0 3px rgba(255, 160, 200, 0.2);
+  }
+  
+  /* Checkbox Favorito */
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff8ecb;
+    cursor: pointer;
+  }
+  
+  /* Mensajes de error */
+  .error {
+    color: #e84a8a;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+  
+  /* Botones */
+  button {
+    background: #ff9ecb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 1.2rem;
+    box-shadow: 0 4px 10px rgba(255, 150, 190, 0.3);
+  }
+  
+  /* Botón “+” y botón “editar” comparten estilo */
+  button:hover:not(:disabled) {
+    background: #ff75b1;
+    transform: translateY(-2px);
+  }
+  
+  button:disabled {
+    background: #ffcce1;
+    cursor: not-allowed;
+  }
+  
+  /* Centrar los botones */
+  button:first-of-type {
+    align-self: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  
+  /* Para el botón “editar” */
+  button:last-of-type {
+    display: block;
+    margin: 1rem auto 0 auto;
+    width: 120px;
+    border-radius: 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    #container.card {
+      padding: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    input {
+      font-size: 0.95rem;
+    }
+  
+    button {
+      font-size: 0.95rem;
+    }
+  }

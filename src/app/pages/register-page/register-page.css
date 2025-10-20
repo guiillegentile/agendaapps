@@ -1,0 +1,149 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe6f2, #ffd1e8);
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    color: #333;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Contenedor principal */
+  #container.card {
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 160, 190, 0.3);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+  }
+  
+  /* Título */
+  h1 {
+    color: #e84a8a;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  /* Formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  
+  /* Campos y etiquetas */
+  label {
+    text-align: left;
+    color: #e84a8a;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.8px solid #ffcce1;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+  }
+  
+  input:focus {
+    border-color: #ff8ecb;
+    box-shadow: 0 0 0 3px rgba(255, 160, 200, 0.2);
+  }
+  
+  /* Mensajes de error */
+  .error {
+    color: #e84a8a;
+    font-size: 0.9rem;
+    text-align: left;
+    margin-top: 0.3rem;
+  }
+  
+  /* Botón principal */
+  button {
+    background: #ff9ecb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 0.8rem;
+    box-shadow: 0 4px 8px rgba(255, 150, 190, 0.3);
+  }
+  
+  button:hover:not(:disabled) {
+    background: #ff75b1;
+    transform: translateY(-2px);
+  }
+  
+  button:disabled {
+    background: #ffcce1;
+    cursor: not-allowed;
+  }
+  
+  /* Enlaces */
+  p {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  a {
+    color: #e84a8a;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+  
+  a:hover {
+    border-color: #e84a8a;
+  }
+  
+  /* Link inferior (Home) */
+  #container.card > a[routerLink="/"] {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #e84a8a;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  #container.card > a[routerLink="/"]:hover {
+    text-decoration: underline;
+  }
+  
+  /* Spinner centrado */
+  app-spinner {
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* Responsive */
+  @media (max-width: 500px) {
+    #container.card {
+      padding: 2rem;
+    }
+  
+    h1 {
+      font-size: 1.7rem;
+    }
+  
+    input {
+      font-size: 0.95rem;
+    }
+  
+    button {
+      font-size: 0.95rem;
+    }
+  }
+  
