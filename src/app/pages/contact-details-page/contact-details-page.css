@@ -1,35 +1,116 @@
-:host {
-  display: block;
+:root {
+  --rosa-claro: #ffe6ef;
+  --rosa: #ffb6c9;
+  --rosa-fuerte: #ff7ba0;
+  --blanco: #ffffff;
+  --gris: #7a7a7a;
+  --sombra: rgba(255, 182, 201, 0.4);
+}
+
+/* Fondo general */
+body {
+  background: linear-gradient(135deg, var(--rosa-claro), var(--blanco));
   font-family: "Poppins", "Segoe UI", sans-serif;
-  background-color: #ffeef7;
-  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 40px 0;
   min-height: 100vh;
-  padding: 2rem;
-  box-sizing: border-box;
+  color: #444;
 }
 
-/* Estado de carga o sin resultados */
-p {
-  font-size: 1rem;
-  margin: 0.8rem 0;
+/* Tarjeta del contacto */
+.contact-card {
+  background-color: var(--blanco);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px var(--sombra);
+  width: 95%;
+  max-width: 450px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-p:first-letter {
-  text-transform: uppercase;
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px var(--sombra);
 }
 
-/* Título del contacto */
-h1 {
-  font-size: 2rem;
-  color: #e84a8a;
-  margin-bottom: 0.5rem;
+/* Títulos */
+.contact-card h1 {
+  color: var(--rosa-fuerte);
   font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 1.6rem;
 }
 
-/* Información del contacto */
-p {
-  font-size: 1.1rem;
-  color: #555;
+/* Textos */
+.contact-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: var(--gris);
+}
+
+/* Inputs */
+form label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  color: var(--rosa-fuerte);
+  margin: 10px 0 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--rosa);
+  background-color: #fff9fb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus {
+  border-color: var(--rosa-fuerte);
+  box-shadow: 0 0 6px var(--sombra);
+  outline: none;
+}
+
+/* Botones */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: var(--rosa);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+button:hover {
+  background-color: var(--rosa-fuerte);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Botón eliminar diferente */
+button:nth-child(2) {
+  background-color: #ff9ba7;
+}
+
+button:nth-child(2):hover {
+  background-color: #ff7585;
 }
 
 /* Estrella de favorito */
@@ -37,82 +118,16 @@ p:has(> .star) {
   font-size: 1.4rem;
 }
 
-/* Botones */
-button {
-  background: #ff9ecb;
-  border: none;
-  border-radius: 10px;
-  padding: 0.6rem 1.2rem;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  font-size: 0.95rem;
-  cursor: pointer;
-  color: white;
-  transition: all 0.25s ease;
-  box-shadow: 0 3px 6px rgba(233, 140, 180, 0.3);
+.star {
+  color: var(--rosa-fuerte);
+  font-size: 1.5rem;
 }
 
-button:hover {
-  background: #ff75b1;
-  transform: translateY(-2px);
-}
-
-/* Enlace de editar (ya no hace falta, dejamos botones) */
-a {
-  color: #e84a8a;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s ease;
-}
-
-a:hover {
-  border-color: #e84a8a;
-}
-
-/* Contenedor principal */
-.contact-card {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 6px 15px rgba(255, 170, 200, 0.3);
-  max-width: 600px;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-/* Inputs del modo edición */
-.contact-card input {
-  display: block;
-  width: 100%;
-  margin: 0.6rem 0 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+/* Estado de carga */
+p {
   font-size: 1rem;
 }
 
-/* Botones dentro del formulario */
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  :host {
-    padding: 1rem;
-  }
-
-  .contact-card {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  button {
-    font-size: 0.9rem;
-  }
+p:first-letter {
+  text-transform: uppercase;
 }

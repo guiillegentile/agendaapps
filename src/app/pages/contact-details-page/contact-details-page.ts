@@ -12,10 +12,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './contact-details-page.css'
 })
 export class ContactDetailsPage implements OnInit {
-  // Id del contacto pasado desde la ruta
   idContacto = input.required<string>();
 
-  // Servicio y router
   readonly contactService = inject(ContactsService);
   router = inject(Router);
 
@@ -23,19 +21,17 @@ export class ContactDetailsPage implements OnInit {
   contacto: Contact | undefined;
   cargandoContacto = false;
 
-  // Estado de edición
   editando = false;
 
   async ngOnInit() {
     if (this.idContacto()) {
-      // Busco primero en el array local del servicio
+
       this.contacto = this.contactService.contacts.find(
         c => c.id.toString() === this.idContacto()
       );
 
       if (!this.contacto) this.cargandoContacto = true;
 
-      // Luego busco en el backend
       const res = await this.contactService.getContactById(this.idContacto());
       if (res) this.contacto = res;
 
@@ -43,7 +39,6 @@ export class ContactDetailsPage implements OnInit {
     }
   }
 
-  // Marcar o desmarcar favorito
   async toggleFavorite() {
     if (this.contacto) {
       const res = await this.contactService.setFavourite(this.contacto.id);
@@ -51,7 +46,6 @@ export class ContactDetailsPage implements OnInit {
     }
   }
 
-  // Eliminar contacto
   async deleteContact() {
     if (this.contacto) {
       const res = await this.contactService.deleteContact(this.contacto.id);
