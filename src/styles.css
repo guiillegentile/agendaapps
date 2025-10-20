@@ -12,14 +12,14 @@
 	line-height: 1.5;
 	overflow-x: hidden;
   
-	/* Fondo degradado animado + textura de puntos */
+
 	background: linear-gradient(180deg, #fff5fa 0%, #ffe6f1 100%);
 	background-image: radial-gradient(#ffd4eb 0.5px, transparent 0.5px);
 	background-size: 25px 25px;
 	position: relative;
   }
   
-  /* Burbujas flotantes animadas */
+
   body::before {
 	content: '';
 	position: absolute;
@@ -38,18 +38,16 @@
 	50% { transform: translate(50px, 50px); }
 	100% { transform: translate(0,0); }
   }
-  
-  /* app-root ocupa toda la altura */
+
   app-root {
 	display: block;
 	min-height: 100vh;
 	position: relative;
-	z-index: 1; /* Para que todo se muestre sobre las burbujas */
+	z-index: 1; 
+	
   }
   
-  /* -----------------------------
-	 CARD Y CONTENEDORES GENERALES
-  ----------------------------- */
+  
   .card {
 	background: #fff;
 	border-radius: 25px;
@@ -66,8 +64,7 @@
 	transform: translateY(-5px);
 	box-shadow: 0 15px 35px rgba(255, 120, 190, 0.45);
   }
-  
-  /* Glow suave */
+
   .card::after {
 	content: '';
 	position: absolute;
@@ -77,9 +74,7 @@
 	pointer-events: none;
   }
   
-  /* -----------------------------
-	 TITULOS
-  ----------------------------- */
+
   h1, h2 {
 	color: #e84a8a;
 	text-align: center;
@@ -90,9 +85,6 @@
   h1 { font-size: 2rem; }
   h2 { font-size: 1.8rem; }
   
-  /* -----------------------------
-	 FORMULARIOS
-  ----------------------------- */
   form {
 	display: flex;
 	flex-direction: column;
@@ -138,9 +130,7 @@
 	margin-top: 0.3rem;
   }
   
-  /* -----------------------------
-	 BOTONES
-  ----------------------------- */
+ 
   button {
 	background: #ff9ecb;
 	color: white;
@@ -163,8 +153,7 @@
 	background: #ffcce1;
 	cursor: not-allowed;
   }
-  
-  /* Botón circular */
+
   button.circle {
 	width: 60px;
 	height: 60px;
@@ -173,9 +162,7 @@
 	font-size: 1.8rem;
   }
   
-  /* -----------------------------
-	 ENLACES
-  ----------------------------- */
+
   a {
 	color: #e84a8a;
 	text-decoration: none;
@@ -189,9 +176,7 @@
 	transform: translateY(-1px);
   }
   
-  /* -----------------------------
-	 NAVBAR
-  ----------------------------- */
+
   nav {
 	display: flex;
 	justify-content: space-between;
@@ -218,9 +203,7 @@
 	background: #ff75b1;
   }
   
-  /* -----------------------------
-	 LISTA DE CONTACTOS
-  ----------------------------- */
+
   ul {
 	list-style: none;
 	padding: 0;
@@ -273,16 +256,13 @@
 	background: #ff75b1;
   }
   
-  /* -----------------------------
-	 ANIMACIONES SUAVES
-  ----------------------------- */
+ 
   .card, li, button, input, nav {
 	transition: all 0.3s ease;
   }
   
-  /* -----------------------------
-	 RESPONSIVE
-  ----------------------------- */
+
+
   @media (max-width: 700px) {
 	li {
 	  grid-template-columns: 1.5fr 1fr 1fr 0.5fr;
