@@ -9,7 +9,6 @@
     font-family: "Poppins", sans-serif;
   }
   
-  /* Título */
   .groups-container h2 {
     color: #d63384;
     font-size: 2rem;
@@ -17,7 +16,6 @@
     letter-spacing: 1px;
   }
   
-  /* Contenedor de las tarjetas */
   .group-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -25,7 +23,6 @@
     margin-bottom: 30px;
   }
   
-  /* Tarjeta individual */
   .group-card {
     background: linear-gradient(135deg, #ffe6f0, #ffd6e0);
     border-radius: 16px;
@@ -40,27 +37,23 @@
     box-shadow: 0 6px 20px rgba(255, 182, 193, 0.5);
   }
   
-  /* Ícono del grupo */
   .group-card i {
     font-size: 2.2rem;
     color: #d63384;
     margin-bottom: 10px;
   }
   
-  /* Nombre del grupo */
   .group-card h3 {
     color: #333;
     font-size: 1.2rem;
     margin: 10px 0 5px 0;
   }
   
-  /* Texto secundario */
   .group-card p {
     color: #666;
     font-size: 0.9rem;
   }
   
-  /* Botón para agregar grupo */
   .add-group-btn {
     background: #d63384;
     color: #fff;

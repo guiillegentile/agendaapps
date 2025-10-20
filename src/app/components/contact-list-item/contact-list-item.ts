@@ -1,80 +1,32 @@
-import { Component, inject, input, OnInit } from '@angular/core';
-import { ContactsService } from '../../services/contacts-service';
+import { Component, inject, input } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
-import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { ContactsService } from '../../services/contacts-service';
+import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-contact-details-page',
-  standalone: true,
-  imports: [RouterModule, FormsModule],
-  templateUrl: './contact-details-page.html',
-  styleUrl: './contact-details-page.css'
+  selector: 'app-contact-list-item',
+  imports: [RouterModule],
+  templateUrl: './contact-list-item.html',
+  styleUrl: './contact-list-item.css'
 })
-export class ContactDetailsPage implements OnInit {
-  // Id del contacto pasado desde la ruta
-  idContacto = input.required<string>();
+export class ContactListItem {
+  contact = input.required<Contact>();
+  aleatorio = Math.random();
+  contactsService = inject(ContactsService);
 
-  // Servicio y router
-  readonly contactService = inject(ContactsService);
-  router = inject(Router);
-
-  // Datos del contacto
-  contacto: Contact | undefined;
-  cargandoContacto = false;
-
-  // Estado de edición
-  editando = false;
-
-  async ngOnInit() {
-    if (this.idContacto()) {
-      // Busco primero en el array local del servicio
-      this.contacto = this.contactService.contacts.find(
-        c => c.id.toString() === this.idContacto()
-      );
-
-      if (!this.contacto) this.cargandoContacto = true;
-
-      // Luego busco en el backend
-      const res = await this.contactService.getContactById(this.idContacto());
-      if (res) this.contacto = res;
-
-      this.cargandoContacto = false;
-    }
-  }
-
-  // Marcar o desmarcar favorito
-  async toggleFavorite() {
-    if (this.contacto) {
-      const res = await this.contactService.setFavourite(this.contacto.id);
-      if (res) this.contacto.isFavorite = !this.contacto.isFavorite;
-    }
-  }
-
-  // Eliminar contacto
-  async deleteContact() {
-    if (this.contacto) {
-      const res = await this.contactService.deleteContact(this.contacto.id);
-      if (res) this.router.navigate(['/']);
-    }
-  }
-
-  // Guardar cambios en modo edición usando tu método editContact
-  async guardarCambios() {
-    if (this.contacto) {
-      const res = await this.contactService.editContact(this.contacto);
-      if (res) {
-        alert('Contacto actualizado correctamente');
-        this.editando = false;
-      } else {
-        alert('Error al actualizar');
+  openDeleteModal(){
+    Swal.fire({
+      title: "¿Desea borrar el contacto?",
+      showDenyButton: true,
+      showCancelButton: true,
+      showConfirmButton: false,
+      cancelButtonText: "Cancelar",
+      denyButtonText: `Eliminar definitivamente`
+    }).then((result) => {
+      if (result.isDenied) { //Reviso que haya clickeado en el botón rojo.
+        this.contactsService.deleteContact(this.contact().id);
       }
-    }
-  }
-
-  // Cancelar edición
-  cancelarEdicion() {
-    this.editando = false;
+    });
   }
 }
-
