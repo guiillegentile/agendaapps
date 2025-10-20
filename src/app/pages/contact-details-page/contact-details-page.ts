@@ -59,6 +59,7 @@ export class ContactDetailsPage implements OnInit {
     }
   }
 
+  // Guardar cambios en modo edición usando tu método editContact
   async guardarCambios() {
     if (this.contacto) {
       const res = await this.contactService.editContact(this.contacto);
@@ -70,6 +71,7 @@ export class ContactDetailsPage implements OnInit {
       }
     }
   }
+
   // Cancelar edición
   cancelarEdicion() {
     this.editando = false;

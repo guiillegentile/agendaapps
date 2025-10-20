@@ -4,7 +4,7 @@
   <p>No se encontró el contacto</p>
 } @else {
   <div class="contact-card">
-    <!-- si NO está editando -->
+    <!-- Modo VER -->
     @if (!editando) {
       <h1>{{ contacto!.firstName }} {{ contacto!.lastName }}</h1>
       <p>Email: {{ contacto.email }}</p>
@@ -23,42 +23,27 @@
       </div>
 
     } @else {
-      <!-- MODO EDICIÓN -->
+      <!-- Modo EDICIÓN -->
       <h1>Editar contacto</h1>
       <form (ngSubmit)="guardarCambios()" #form="ngForm">
         <label>
           Nombre:
-          <input
-            [(ngModel)]="contacto.firstName"
-            name="firstName"
-            required
-          />
+          <input [(ngModel)]="contacto.firstName" name="firstName" required />
         </label>
 
         <label>
           Apellido:
-          <input
-            [(ngModel)]="contacto.lastName"
-            name="lastName"
-            required
-          />
+          <input [(ngModel)]="contacto.lastName" name="lastName" required />
         </label>
 
         <label>
           Email:
-          <input
-            [(ngModel)]="contacto.email"
-            name="email"
-            type="email"
-          />
+          <input [(ngModel)]="contacto.email" name="email" type="email" />
         </label>
 
         <label>
           Teléfono:
-          <input
-            [(ngModel)]="contacto.number"
-            name="number"
-          />
+          <input [(ngModel)]="contacto.number" name="number" />
         </label>
 
         <div class="buttons">
