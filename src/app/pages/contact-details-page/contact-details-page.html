@@ -1,56 +1,58 @@
-@if (cargandoContacto) {
+<div *ngIf="cargandoContacto">
   <p>Cargando contacto...</p>
-} @else if (!contacto) {
-  <p>No se encontró el contacto</p>
-} @else {
-  <div class="contact-card">
-    <!-- Modo VER -->
-    @if (!editando) {
-      <h1>{{ contacto!.firstName }} {{ contacto!.lastName }}</h1>
-      <p>Email: {{ contacto.email }}</p>
-      <p>Teléfono: {{ contacto.number }}</p>
+</div>
 
-      @if (contacto.isFavorite) {
-        <p>⭐</p>
-        <button (click)="toggleFavorite()">Desmarcar favorito</button>
-      } @else {
-        <button (click)="toggleFavorite()">Marcar como favorito</button>
-      }
+<div *ngIf="!cargandoContacto && !contacto">
+  <p>No se encontró el contacto</p>
+</div>
+
+<div *ngIf="!cargandoContacto && contacto" class="contact-card">
+
+  <!-- Modo ver -->
+  <div *ngIf="!editando">
+    <h1>{{ contacto.firstName }} {{ contacto.lastName }}</h1>
+    <p>Email: {{ contacto.email }}</p>
+    <p>Teléfono: {{ contacto.number }}</p>
+
+    <p *ngIf="contacto.isFavorite">⭐</p>
+    <button (click)="toggleFavorite()">
+      {{ contacto.isFavorite ? 'Desmarcar favorito' : 'Marcar como favorito' }}
+    </button>
+
+    <div class="buttons">
+      <button (click)="editando = true">Editar</button>
+      <button (click)="deleteContact()">Eliminar</button>
+    </div>
+  </div>
+
+  <!-- Modo editar -->
+  <div *ngIf="editando">
+    <h1>Editar contacto</h1>
+    <form (ngSubmit)="guardarCambios()" #form="ngForm">
+      <label>
+        Nombre:
+        <input [(ngModel)]="contacto.firstName" name="firstName" required />
+      </label>
+
+      <label>
+        Apellido:
+        <input [(ngModel)]="contacto.lastName" name="lastName" required />
+      </label>
+
+      <label>
+        Email:
+        <input [(ngModel)]="contacto.email" name="email" type="email" />
+      </label>
+
+      <label>
+        Teléfono:
+        <input [(ngModel)]="contacto.number" name="number" />
+      </label>
 
       <div class="buttons">
-        <button (click)="editando = true">Editar</button>
-        <button (click)="deleteContact()">Eliminar</button>
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="cancelarEdicion()">Cancelar</button>
       </div>
-
-    } @else {
-      <!-- Modo EDICIÓN -->
-      <h1>Editar contacto</h1>
-      <form (ngSubmit)="guardarCambios()" #form="ngForm">
-        <label>
-          Nombre:
-          <input [(ngModel)]="contacto.firstName" name="firstName" required />
-        </label>
-
-        <label>
-          Apellido:
-          <input [(ngModel)]="contacto.lastName" name="lastName" required />
-        </label>
-
-        <label>
-          Email:
-          <input [(ngModel)]="contacto.email" name="email" type="email" />
-        </label>
-
-        <label>
-          Teléfono:
-          <input [(ngModel)]="contacto.number" name="number" />
-        </label>
-
-        <div class="buttons">
-          <button type="submit">Guardar</button>
-          <button type="button" (click)="cancelarEdicion()">Cancelar</button>
-        </div>
-      </form>
-    }
+    </form>
   </div>
-}
+</div>

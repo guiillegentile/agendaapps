@@ -1,12 +1,19 @@
 <li [class.favourite]="contact().isFavorite === true">
-    <span>{{contact().firstName}} {{contact().lastName}}</span>
-    <span>{{contact().number}}</span>
-    <span>{{contact().email}}</span>
+    <span>{{ contact().firstName }} {{ contact().lastName }}</span>
+    <span>{{ contact().number }}</span>
+    <span>{{ contact().email }}</span>
     <span>-</span>
-    <span><button (click)="contactsService.deleteContact(contact().id)">Borrar</button></span>
+  
+    <!-- Enlace al detalle -->
     <span>
-        @if (contact().isFavorite === true) {
-            ⭐
-        }
+      <a [routerLink]="['/contacts', contact().id]">Ver</a>
     </span>
-</li>
+  
+    <!-- Botón eliminar -->
+    <span>
+      <button (click)="contactsService.deleteContact(contact().id)">Borrar</button>
+    </span>
+  
+    <!-- Favorito -->
+    <span *ngIf="contact().isFavorite">⭐</span>
+  </li>
