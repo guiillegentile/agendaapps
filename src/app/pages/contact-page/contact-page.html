@@ -1,20 +1,19 @@
-<div class="contact-page-container">
-  <!-- Encabezado -->
-  <div class="list-header">
-    <span>Nombre</span>
-    <span>Teléfono</span>
-    <span>Email</span>
-    <span>Grupos</span>
-    <span>Acciones</span>
-  </div>
-
-  <!-- Lista de contactos -->
-  <ul>
-    <li *ngFor="let contacto of contactsService.contacts" [class.favourite]="contacto.isFavorite">
-      <app-contact-list-item [contact]="contacto"></app-contact-list-item>
-    </li>
-  </ul>
-
-  <!-- Botón agregar contacto -->
-  <a routerLink="/contacts/new" class="add-contact-btn">+</a>
+<div class="contact-header">
+  <span>Nombre</span>
+  <span>Teléfono</span>
+  <span>Email</span>
+  <span>Grupos</span>
+  <span>Acciones</span>
 </div>
+
+<!-- Lista de contactos -->
+<ul class="contact-list">
+  @for (contactoIndividual of contactsService.contacts; track $index) {
+    <a [routerLink]="['/contacts', contactoIndividual.id]">
+      <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
+    </a>
+  }
+</ul>
+
+<!-- Botón agregar contacto -->
+<a routerLink="/contacts/new" class="add-contact">+</a>
