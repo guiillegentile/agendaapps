@@ -1,37 +1,25 @@
-li {
-  display: grid;
-  grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr;
-  align-items: center;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  background: #ffe6f0; /* rosa muy suave */
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-family: 'Arial', sans-serif;
-  transition: transform 0.2s, box-shadow 0.2s;
+li app-contact-list-item {
+  display: contents; /* hereda grid del li padre */
 }
 
-li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-li span {
+li app-contact-list-item span {
+  display: block;
   font-size: 14px;
   color: #333;
+  padding: 5px 0; /* solo separación vertical */
 }
 
-li span a {
-  color: #ff3399; /* rosa más intenso para links */
+li app-contact-list-item span a {
+  color: #ff3399;
   text-decoration: none;
   font-weight: 500;
 }
 
-li span a:hover {
+li app-contact-list-item span a:hover {
   text-decoration: underline;
 }
 
-li span button {
+li app-contact-list-item span button {
   background: #ff66b3;
   color: white;
   border: none;
@@ -42,15 +30,11 @@ li span button {
   transition: background 0.2s;
 }
 
-li span button:hover {
+li app-contact-list-item span button:hover {
   background: #ff3385;
 }
 
-li.favourite {
-  border-left: 5px solid #ff3399; /* marca visual de favorito */
-}
-
-li span:last-child {
+li.favourite app-contact-list-item span:last-child {
   font-size: 18px;
   color: #ff3399;
   text-align: center;
