@@ -1,49 +1,57 @@
-.contact-item {
+li {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 2fr 1fr 2fr 0.5fr;
+  grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr;
   align-items: center;
-  padding: 12px 20px;
-  background: #ffe4ec;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background: #ffe6f0; /* rosa muy suave */
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
   transition: transform 0.2s, box-shadow 0.2s;
-  color: #ff4d85;
-  font-size: 14px;
 }
 
-.contact-item:hover {
+li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.contact-item a {
-  color: #ff66a3;
-  font-weight: 600;
+li span {
+  font-size: 14px;
+  color: #333;
+}
+
+li span a {
+  color: #ff3399; /* rosa más intenso para links */
   text-decoration: none;
+  font-weight: 500;
 }
 
-.contact-item a:hover {
-  color: #ff1a66;
+li span a:hover {
+  text-decoration: underline;
 }
 
-.contact-item button {
-  background: #ff99b3;
+li span button {
+  background: #ff66b3;
+  color: white;
   border: none;
+  padding: 5px 12px;
   border-radius: 8px;
-  padding: 6px 10px;
-  color: #fff;
-  font-weight: 600;
   cursor: pointer;
-  margin-left: 6px;
-  transition: background 0.2s, transform 0.2s;
+  font-weight: 500;
+  transition: background 0.2s;
 }
 
-.contact-item button:hover {
-  background: #ff4d85;
-  transform: translateY(-1px);
+li span button:hover {
+  background: #ff3385;
 }
 
-.contact-item span:last-child {
+li.favourite {
+  border-left: 5px solid #ff3399; /* marca visual de favorito */
+}
+
+li span:last-child {
   font-size: 18px;
-  color: #ff1a66; /* estrella favorita */
+  color: #ff3399;
+  text-align: center;
 }
