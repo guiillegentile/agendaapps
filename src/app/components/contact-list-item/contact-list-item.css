@@ -1,61 +1,49 @@
-li {
-  list-style: none;
-  background: #ffe4ec; /* rosa suave */
-  margin: 10px 0;
-  padding: 15px 20px;
-  border-radius: 15px;
-  display: flex;
+.contact-item {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 2fr 1fr 2fr 0.5fr;
   align-items: center;
-  justify-content: space-between;
+  padding: 12px 20px;
+  background: #ffe4ec;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
   transition: transform 0.2s, box-shadow 0.2s;
-  font-family: 'Arial', sans-serif;
   color: #ff4d85;
+  font-size: 14px;
 }
 
-li:hover {
+.contact-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5);
 }
 
-li span {
-  margin: 0 8px;
-  font-size: 14px;
-}
-
-li a {
-  text-decoration: none;
+.contact-item a {
   color: #ff66a3;
   font-weight: 600;
-  transition: color 0.2s;
+  text-decoration: none;
 }
 
-li a:hover {
+.contact-item a:hover {
   color: #ff1a66;
 }
 
-li button {
-  background: #ff99b3; /* rosa medio */
+.contact-item button {
+  background: #ff99b3;
   border: none;
   border-radius: 8px;
   padding: 6px 10px;
   color: #fff;
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
+  margin-left: 6px;
   transition: background 0.2s, transform 0.2s;
 }
 
-li button:hover {
+.contact-item button:hover {
   background: #ff4d85;
   transform: translateY(-1px);
 }
 
-/* Estilo especial para favoritos */
-li.favourite {
-  border: 2px solid #ff1a66; /* resalta favoritos */
-}
-
-li span:last-child {
+.contact-item span:last-child {
   font-size: 18px;
-  color: #ff1a66; /* estrella rosa intensa */
+  color: #ff1a66; /* estrella favorita */
 }

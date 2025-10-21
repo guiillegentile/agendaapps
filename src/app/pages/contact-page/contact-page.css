@@ -1,16 +1,14 @@
-
 .contact-page-container {
   max-width: 900px;
   margin: 30px auto;
   padding: 0 15px;
   font-family: 'Arial', sans-serif;
-  color: #ff4d85;
 }
 
-/* Encabezado de la lista */
+/* Encabezado */
 .contact-page-container .list-header {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr; /* Ajusta según columnas */
+  grid-template-columns: 2fr 1.5fr 2fr 1fr 2fr 0.5fr;
   padding: 12px 20px;
   font-weight: 700;
   font-size: 16px;
@@ -18,38 +16,17 @@
   background: #ffe4ec;
   border-radius: 12px;
   margin-bottom: 10px;
+  color: #ff4d85;
 }
 
-/* Lista de contactos */
+/* Lista */
 .contact-page-container ul {
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-/* Items de contacto */
-.contact-page-container ul li {
   list-style: none;
-  background: #ffe4ec;
-  border-radius: 12px;
-  padding: 12px 20px;
-  display: grid;
-  grid-template-columns: 2fr 1.5fr 2fr 1fr 1fr; /* Igual que encabezado */
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.contact-page-container ul li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5);
-}
-
-/* Favoritos resaltados */
-.contact-page-container ul li.favourite {
-  border: 2px solid #ff1a66;
 }
 
 /* Botón agregar contacto */
@@ -75,14 +52,14 @@
 /* Responsivo */
 @media (max-width: 700px) {
   .contact-page-container .list-header,
-  .contact-page-container ul li {
+  .contact-page-container ul li .contact-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .contact-page-container .list-header span,
-  .contact-page-container ul li span {
+  .contact-page-container ul li .contact-item span {
     margin: 4px 0;
   }
 }
