@@ -1,133 +1,56 @@
-:root {
-  --rosa-claro: #ffe6ef;
-  --rosa: #ffb6c9;
-  --rosa-fuerte: #ff7ba0;
-  --blanco: #ffffff;
-  --gris: #7a7a7a;
-  --sombra: rgba(255, 182, 201, 0.4);
+.contact-details {
+  background: #ffe4ec; /* rosa suave */
+  padding: 25px 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 6px 12px rgba(255, 182, 193, 0.3);
+  font-family: 'Arial', sans-serif;
+  color: #ff4d85; /* rosa intenso para texto */
 }
 
-/* Fondo general */
-body {
-  background: linear-gradient(135deg, var(--rosa-claro), var(--blanco));
-  font-family: "Poppins", "Segoe UI", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding: 40px 0;
-  min-height: 100vh;
-  color: #444;
+.contact-details h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ff1a66; /* rosa fuerte para nombre */
 }
 
-/* Tarjeta del contacto */
-.contact-card {
-  background-color: var(--blanco);
-  border-radius: 18px;
-  box-shadow: 0 4px 20px var(--sombra);
-  width: 95%;
-  max-width: 450px;
-  padding: 30px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 24px var(--sombra);
-}
-
-/* Títulos */
-.contact-card h1 {
-  color: var(--rosa-fuerte);
-  font-weight: 600;
-  margin-bottom: 12px;
-  font-size: 1.6rem;
-}
-
-/* Textos */
-.contact-card p {
+.contact-details p {
+  font-size: 16px;
   margin: 6px 0;
-  font-size: 0.95rem;
-  color: var(--gris);
 }
 
-/* Inputs */
-form label {
-  display: block;
-  text-align: left;
-  font-weight: 500;
-  color: var(--rosa-fuerte);
-  margin: 10px 0 5px;
+.contact-details a {
+  text-decoration: none;
+  color: #ff66a3;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
-form input {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--rosa);
-  background-color: #fff9fb;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.contact-details a:hover {
+  color: #ff1a66;
 }
 
-form input:focus {
-  border-color: var(--rosa-fuerte);
-  box-shadow: 0 0 6px var(--sombra);
-  outline: none;
-}
-
-/* Botones */
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-button {
-  background-color: var(--rosa);
+.contact-details button {
+  background: #ff99b3; /* rosa medio */
   border: none;
   border-radius: 10px;
-  padding: 10px 18px;
-  color: white;
+  padding: 8px 14px;
+  margin-top: 8px;
+  color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.15s ease;
+  transition: background 0.2s, transform 0.2s;
 }
 
-button:hover {
-  background-color: var(--rosa-fuerte);
-  transform: scale(1.05);
+.contact-details button:hover {
+  background: #ff4d85;
+  transform: translateY(-2px);
 }
 
-button:active {
-  transform: scale(0.97);
-}
-
-/* Botón eliminar diferente */
-button:nth-child(2) {
-  background-color: #ff9ba7;
-}
-
-button:nth-child(2):hover {
-  background-color: #ff7585;
-}
-
-/* Estrella de favorito */
-p:has(> .star) {
-  font-size: 1.4rem;
-}
-
-.star {
-  color: var(--rosa-fuerte);
-  font-size: 1.5rem;
-}
-
-/* Estado de carga */
-p {
-  font-size: 1rem;
-}
-
-p:first-letter {
-  text-transform: uppercase;
+/* Estilo estrella de favorito */
+.contact-details .favorite {
+  color: #ff1a66;
+  font-size: 22px;
+  margin-right: 10px;
 }
