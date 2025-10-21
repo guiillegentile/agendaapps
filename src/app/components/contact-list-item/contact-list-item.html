@@ -3,12 +3,13 @@
     <span>{{contact().number}}</span>
     <span>{{contact().email}}</span>
     <span>-</span>
-  
     <span>
-      <a [routerLink]="['/contacts', contact().id]">Ver</a>
+        <button (click)="openDeleteModal()">Borrar</button>
+        <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
     </span>
-  
-    <span><button (click)="contactsService.deleteContact(contact().id)">Borrar</button></span>
-  
-    <span *ngIf="contact().isFavorite">⭐</span>
-  </li>
+    <span>
+        @if (contact().isFavorite === true) {
+            ⭐
+        }
+    </span>
+</li>
