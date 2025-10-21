@@ -1,50 +1,54 @@
 .contact-page-container {
   max-width: 900px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 25px;
   background: #fff0f6; /* rosa muy suave */
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   font-family: 'Arial', sans-serif;
 }
 
-.list-header {
-  display: grid;
-  grid-template-columns: 2fr 2fr 3fr 2fr 2fr;
-  padding: 10px 15px;
+/* Header de la lista de contactos */
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
   font-weight: 600;
-  color: #ff3399; /* rosa intenso para encabezado */
+  color: #ff3399;
   border-bottom: 2px solid #ffccd9;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.list-header span {
+.contact-header span {
+  flex: 1;
   text-align: left;
 }
 
-ul {
+/* Lista de contactos */
+.contact-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-ul li {
-  display: grid;
-  grid-template-columns: 2fr 2fr 3fr 2fr 2fr;
-  align-items: center;
-  padding: 8px 15px;
-  margin-bottom: 10px;
-  background: #ffe6f0; /* rosa suave */
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.contact-list a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.add-contact-btn {
+.contact-list app-contact-list-item {
+  display: block;
+}
+
+/* Botones y layout dentro del item se manejan en contact-list-item.css */
+
+/* Botón de agregar contacto */
+.add-contact {
   display: inline-block;
   margin-top: 20px;
   background: #ff66b3;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -54,11 +58,7 @@ ul li {
   transition: background 0.2s, transform 0.2s;
 }
 
-.add-contact-btn:hover {
+.add-contact:hover {
   background: #ff3385;
   transform: scale(1.1);
-}
-
-li.favourite {
-  border-left: 5px solid #ff3399;
 }
