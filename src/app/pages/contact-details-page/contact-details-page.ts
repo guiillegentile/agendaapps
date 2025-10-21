@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { ContactsService } from '../../services/contacts-service';
-import { Contact, NewContact } from '../../interfaces/contact';
+import { Contact } from '../../interfaces/contact';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -17,19 +17,19 @@ export class ContactDetailsPage implements OnInit {
   readonly contactService = inject(ContactsService);
   router = inject(Router);
 
+  // Datos del contacto
   contacto: Contact | undefined;
   cargandoContacto = false;
+
   editando = false;
-  errorEnBack = false;
 
   async ngOnInit() {
     if (this.idContacto()) {
-      // Intentar obtener contacto desde el array local primero
+
       this.contacto = this.contactService.contacts.find(
         c => c.id.toString() === this.idContacto()
       );
 
-      // Si no está, hacemos fetch
       if (!this.contacto) this.cargandoContacto = true;
 
       const res = await this.contactService.getContactById(this.idContacto());
@@ -49,26 +49,13 @@ export class ContactDetailsPage implements OnInit {
   async deleteContact() {
     if (this.contacto) {
       const res = await this.contactService.deleteContact(this.contacto.id);
-      if (res) this.router.navigate(['/contacts']);
+      if (res) this.router.navigate(['/']);
     }
   }
 
   async guardarCambios() {
     if (this.contacto) {
-      // Creamos un objeto NewContact sin id
-      const datos: NewContact = {
-        firstName: this.contacto.firstName,
-        lastName: this.contacto.lastName,
-        number: this.contacto.number,
-        email: this.contacto.email,
-        address: this.contacto.address,
-        company: this.contacto.company,
-        image: this.contacto.image,
-        isFavorite: this.contacto.isFavorite
-      };
-
-      const res = await this.contactService.updateContact(this.contacto.id, datos);
-
+      const res = await this.contactService.editContact(this.contacto);
       if (res) {
         alert('Contacto actualizado correctamente');
         this.editando = false;
@@ -80,9 +67,5 @@ export class ContactDetailsPage implements OnInit {
 
   cancelarEdicion() {
     this.editando = false;
-  }
-
-  editarContacto() {
-    this.editando = true;
   }
 }
