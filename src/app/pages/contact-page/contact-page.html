@@ -1,61 +1,20 @@
-<div class="cabecera">
-  <span>Nombre</span>
-  <span>Teléfono</span>
-  <span>Email</span>
-  <span>Grupos</span>
-  <span>Acciones</span>
-</div>
-
-<ul>
-  @for (contactoIndividual of contactsService.contacts; track $index) {
-    <app-contact-list-item
-      [contact]="contactoIndividual"
-      (click)="verContacto(contactoIndividual)">
-    </app-contact-list-item>
-  }
-</ul>
-
-<a class="nuevo-contacto" routerLink="/contacts/new">+</a>
-
-<!-- PANEL DETALLE -->
-<div *ngIf="contactoSeleccionado" class="detalle">
-  <div *ngIf="!editando">
-    <h2>{{ contactoSeleccionado.firstName }} {{ contactoSeleccionado.lastName }}</h2>
-    <p>Email: {{ contactoSeleccionado.email }}</p>
-    <p>Teléfono: {{ contactoSeleccionado.number }}</p>
-
-    <button (click)="toggleFavorite()">
-      {{ contactoSeleccionado.isFavorite ? '💖 Quitar favorito' : '🤍 Marcar favorito' }}
-    </button>
-
-    <div class="botones">
-      <button (click)="editando = true">Editar</button>
-      <button (click)="eliminarContacto()">Eliminar</button>
-      <button (click)="contactoSeleccionado = undefined">Cerrar</button>
-    </div>
+<div class="contact-page-container">
+  <!-- Encabezado -->
+  <div class="list-header">
+    <span>Nombre</span>
+    <span>Teléfono</span>
+    <span>Email</span>
+    <span>Grupos</span>
+    <span>Acciones</span>
   </div>
 
-  <form *ngIf="editando" (ngSubmit)="guardarCambios()">
-    <label>
-      Nombre:
-      <input [(ngModel)]="contactoSeleccionado.firstName" name="firstName" required />
-    </label>
-    <label>
-      Apellido:
-      <input [(ngModel)]="contactoSeleccionado.lastName" name="lastName" required />
-    </label>
-    <label>
-      Email:
-      <input [(ngModel)]="contactoSeleccionado.email" name="email" type="email" />
-    </label>
-    <label>
-      Teléfono:
-      <input [(ngModel)]="contactoSeleccionado.number" name="number" />
-    </label>
+  <!-- Lista de contactos -->
+  <ul>
+    <li *ngFor="let contacto of contactsService.contacts" [class.favourite]="contacto.isFavorite">
+      <app-contact-list-item [contact]="contacto"></app-contact-list-item>
+    </li>
+  </ul>
 
-    <div class="botones">
-      <button type="submit">Guardar</button>
-      <button type="button" (click)="cancelarEdicion()">Cancelar</button>
-    </div>
-  </form>
+  <!-- Botón agregar contacto -->
+  <a routerLink="/contacts/new" class="add-contact-btn">+</a>
 </div>

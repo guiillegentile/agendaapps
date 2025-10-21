@@ -1,10 +1,25 @@
-.cabecera {
+.contact-page-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff0f6; /* rosa muy suave */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.list-header {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  font-weight: bold;
-  color: #d63384;
-  padding: 10px 0;
-  border-bottom: 2px solid #f8d7da;
+  grid-template-columns: 2fr 2fr 3fr 2fr 2fr;
+  padding: 10px 15px;
+  font-weight: 600;
+  color: #ff3399; /* rosa intenso para encabezado */
+  border-bottom: 2px solid #ffccd9;
+  margin-bottom: 10px;
+}
+
+.list-header span {
+  text-align: left;
 }
 
 ul {
@@ -13,70 +28,37 @@ ul {
   margin: 0;
 }
 
-.nuevo-contacto {
+ul li {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr 2fr 2fr;
+  align-items: center;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  background: #ffe6f0; /* rosa suave */
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.add-contact-btn {
   display: inline-block;
-  background-color: #f8c1d6;
+  margin-top: 20px;
+  background: #ff66b3;
   color: white;
   font-size: 24px;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
+  width: 50px;
+  height: 50px;
   text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
   text-decoration: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, transform 0.2s;
 }
 
-.nuevo-contacto:hover {
-  background-color: #e47dab;
+.add-contact-btn:hover {
+  background: #ff3385;
+  transform: scale(1.1);
 }
 
-.detalle {
-  background-color: #fff0f6;
-  border: 2px solid #f8c1d6;
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 4px 10px rgba(214, 51, 132, 0.1);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.detalle h2 {
-  color: #d63384;
-  margin-bottom: 10px;
-}
-
-.detalle p {
-  margin: 4px 0;
-  color: #333;
-}
-
-button {
-  background-color: #f8c1d6;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  background-color: #e47dab;
-}
-
-.botones {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+li.favourite {
+  border-left: 5px solid #ff3399;
 }
