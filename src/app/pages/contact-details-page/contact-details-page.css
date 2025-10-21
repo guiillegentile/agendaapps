@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  background: #fff0f6; /* rosa muy suave */
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   max-width: 500px;
   margin: 20px auto;
+  padding: 30px;
+  background: #fff0f6; /* rosa suave */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   font-family: 'Arial', sans-serif;
 }
 
 h1 {
-  color: #ff3399; /* rosa intenso para el nombre */
+  color: #ff3399;
   margin-bottom: 20px;
   text-align: center;
 }
