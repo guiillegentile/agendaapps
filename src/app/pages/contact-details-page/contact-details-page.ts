@@ -38,7 +38,6 @@ export class ContactDetailsPage implements OnInit {
       this.cargandoContacto = false;
     }
   }
-
   async toggleFavorite() {
     if (this.contacto) {
       const res = await this.contactService.setFavourite(this.contacto.id);

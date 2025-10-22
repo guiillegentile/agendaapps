@@ -111,18 +111,21 @@ button:disabled {
     
   }
   .volver-btn {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.95rem;
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1rem;
+  }
+  
+  .volver-btn:hover {
+    background-color: #e0e0e0;
   }
 }
-.btn-back {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: none;
-  border: none;
-  color: #e84a8a;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 500;
-}
+

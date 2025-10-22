@@ -2,11 +2,11 @@ import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angula
 import { Form, FormsModule, NgForm } from '@angular/forms';
 import { Contact, NewContact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-new-edit-contact',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './new-edit-contact.html',
   styleUrl: './new-edit-contact.css'
 })
@@ -58,9 +58,7 @@ export class NewEditContact implements OnInit {
 
     this.router.navigate(["/contacts",res.id]);
   }
-  volver() {
-    this.router.navigate(['/contacts']);
-  }
+  
 }
 
 
