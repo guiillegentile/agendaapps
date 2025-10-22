@@ -2,13 +2,13 @@
   max-width: 900px;
   margin: 30px auto;
   padding: 25px;
-  background: #fff0f6; /* rosa muy suave */
+  background: #fff0f6; 
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   font-family: 'Arial', sans-serif;
 }
 
-/* Header de la lista de contactos */
+
 .contact-header {
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@
   text-align: left;
 }
 
-/* Lista de contactos */
+
 .contact-list {
   list-style: none;
   padding: 0;
@@ -40,9 +40,7 @@
   display: block;
 }
 
-/* Botones y layout dentro del item se manejan en contact-list-item.css */
 
-/* Botón de agregar contacto */
 .add-contact {
   display: inline-block;
   margin-top: 20px;

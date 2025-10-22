@@ -1,17 +1,17 @@
 li app-contact-list-item {
-  display: contents; /* permite heredar la grilla del li padre */
+  display: contents; 
 }
 
 li app-contact-list-item span {
   display: block;
   font-size: 14px;
   color: #333;
-  padding: 5px 0; /* separación vertical */
+  padding: 5px 0; 
   text-align: left;
 }
 
 li app-contact-list-item span a {
-  color: #ff3399; /* rosa intenso */
+  color: #ff3399; 
   text-decoration: none;
   font-weight: 500;
 }

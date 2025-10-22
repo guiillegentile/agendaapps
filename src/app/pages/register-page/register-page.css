@@ -10,7 +10,6 @@
     box-sizing: border-box;
   }
   
-  /* Contenedor principal */
   #container.card {
     background: #fff;
     padding: 2.5rem 3rem;
@@ -21,7 +20,6 @@
     text-align: center;
   }
   
-  /* Título */
   h1 {
     color: #e84a8a;
     font-size: 2rem;
@@ -29,14 +27,12 @@
     font-weight: 600;
   }
   
-  /* Formulario */
   form {
     display: flex;
     flex-direction: column;
     gap: 1.1rem;
   }
   
-  /* Campos y etiquetas */
   label {
     text-align: left;
     color: #e84a8a;
@@ -59,7 +55,6 @@
     box-shadow: 0 0 0 3px rgba(255, 160, 200, 0.2);
   }
   
-  /* Mensajes de error */
   .error {
     color: #e84a8a;
     font-size: 0.9rem;
@@ -67,7 +62,6 @@
     margin-top: 0.3rem;
   }
   
-  /* Botón principal */
   button {
     background: #ff9ecb;
     color: white;
@@ -91,7 +85,6 @@
     cursor: not-allowed;
   }
   
-  /* Enlaces */
   p {
     margin-top: 1.2rem;
     font-size: 0.95rem;
@@ -109,7 +102,6 @@
     border-color: #e84a8a;
   }
   
-  /* Link inferior (Home) */
   #container.card > a[routerLink="/"] {
     display: inline-block;
     margin-top: 1.5rem;
@@ -122,13 +114,12 @@
     text-decoration: underline;
   }
   
-  /* Spinner centrado */
+
   app-spinner {
     display: block;
     margin: 1rem auto;
   }
   
-  /* Responsive */
   @media (max-width: 500px) {
     #container.card {
       padding: 2rem;

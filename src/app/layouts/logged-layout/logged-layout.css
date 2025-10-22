@@ -7,7 +7,7 @@ div {
     z-index: 1000;
   }
   
-  /* Barra de navegación */
+ 
   nav {
     display: flex;
     justify-content: space-between;
@@ -18,7 +18,7 @@ div {
     font-family: "Poppins", sans-serif;
   }
   
-  /* Enlaces */
+
   nav a {
     color: #ff7bbd;
     text-decoration: none;
@@ -33,7 +33,7 @@ div {
     transform: translateY(-1px);
   }
   
-  /* Botón Log out */
+
   button {
     background: #ff9ecb;
     border: none;
@@ -52,7 +52,7 @@ div {
     transform: translateY(-2px);
   }
   
-  /* Responsive */
+
   @media (max-width: 700px) {
     nav {
       flex-direction: column;
