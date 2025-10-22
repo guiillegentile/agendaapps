@@ -33,7 +33,7 @@ export const routes: Routes = [
         component: NewEditContact
       },
       {
-        path: "contacts/:id",
+        path: "contacts/:idContacto",
         component: ContactDetailsPage
       },
       {

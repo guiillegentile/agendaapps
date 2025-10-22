@@ -16,13 +16,23 @@ export class NewEditContact implements OnInit {
   errorEnBack = false;
   idContacto = input<number>();
   contactoOriginal:Contact|undefined = undefined;
-  form = viewChild<ElementRef<Form>>('newContactForm');
+  form = viewChild<NgForm>('newContactForm');
 
   
   async ngOnInit() {
     if(this.idContacto()){
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
-      console.log(this.contactoOriginal)
+      this.form()?.setValue({
+        firstName: this.contactoOriginal!.firstName,
+        lastName: this.contactoOriginal!.lastName,
+        address: this.contactoOriginal!.address,
+        email: this.contactoOriginal!.email,
+        image: this.contactoOriginal!.image,
+        number: this.contactoOriginal!.number,
+        company: this.contactoOriginal!.company,
+        isFavourite: this.contactoOriginal!.isFavorite
+      })
+
     }
   }
 
@@ -37,13 +47,20 @@ export class NewEditContact implements OnInit {
       number: form.value.number,
       company: form.value.company,
       isFavorite: form.value.isFavorite
-    }
-
+    } 
+    
     const res = await this.contactsService.createContact(nuevoContacto);
     if(!res) {
       this.errorEnBack = true;
       return
     };
+
+
     this.router.navigate(["/contacts",res.id]);
   }
+  volver() {
+    this.router.navigate(['/contacts']);
+  }
 }
+
+

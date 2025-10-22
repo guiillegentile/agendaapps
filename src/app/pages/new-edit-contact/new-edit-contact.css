@@ -108,5 +108,21 @@ button:disabled {
 
   button {
     font-size: 1rem;
+    
   }
+  .volver-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+.btn-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  color: #e84a8a;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
 }
